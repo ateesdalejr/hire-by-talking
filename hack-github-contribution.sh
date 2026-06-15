@@ -21,7 +21,7 @@ for date in $date_data; do
     git add "$file_name"
 
     # Commit with the specific message and date
-    git commit -m "Contribution graph backfill for ${commit_date}: this is not evidence I worked this day" --date="${commit_date}"
+    GIT_AUTHOR_DATE="${commit_date}" GIT_COMMITTER_DATE="${commit_date}" git commit -m "Contribution graph backfill for ${commit_date}: this is not evidence I worked this day"
 
     # Check if the commit was successful before removing the date
     if [ $? -eq 0 ]; then
